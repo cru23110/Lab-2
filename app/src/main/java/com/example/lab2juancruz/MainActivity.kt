@@ -26,26 +26,30 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MyApp() {
+    // `counter` es una variable que guarda el número de veces que se ha presionado el botón
     var counter by remember { mutableIntStateOf(0) }
 
-    // Pantalla principal con un botón y un contador
+    // Column organiza los elementos verticalmente
     Column(
-        modifier = Modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+        modifier = Modifier.fillMaxSize(), // Hace que la columna ocupe todo el espacio disponible
+        horizontalAlignment = Alignment.CenterHorizontally, // Alinea el contenido horizontalmente al centro
+        verticalArrangement = Arrangement.Center // Alinea el contenido verticalmente al centro
     ) {
+        // Muestra el texto que indica cuántas veces se ha presionado el botón
         Text(text = "Has presionado el botón $counter veces")
 
+        // Añade un espacio de 16dp entre el texto y el botón
         Spacer(modifier = Modifier.height(16.dp))
 
+        // Botón que incrementa el contador cuando se presiona
         Button(onClick = {
-            // Incrementar el contador cuando se presiona el botón
-            counter++
+            counter++ // Incrementa el contador
         }) {
-            Text("Presióname")
+            Text("Presióname") // Texto que se muestra en el botón
         }
     }
 }
+
 
 @Preview(showBackground = true)
 @Composable
